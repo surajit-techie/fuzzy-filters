@@ -20,7 +20,7 @@ def sp_noise(image,prob):
 
 image = cv2.imread('lena.jpg')
 gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-noise_image = sp_noise(gray_image,0.05)
+noise_image = sp_noise(gray_image,0.02)
 cv2.imwrite('noiseimg.png',noise_image)
 fuzz_image = fuzz.filters.fire2d(noise_image, 0, 260,1)
 cv2.imwrite('fuzzimg.png',fuzz_image)
