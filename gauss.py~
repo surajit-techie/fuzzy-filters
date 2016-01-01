@@ -1,0 +1,10 @@
+import cv2
+import noise
+import scipy.ndimage
+
+image = cv2.imread('lena.png')
+noise_image = noise.sp_noise(image,0.02)
+gray_image = cv2.cvtColor(noise_image, cv2.COLOR_BGR2GRAY)
+cv2.imwrite('noiseimg.png',gray_image)
+gauss_image = scipy.ndimage.filters.gaussian_filter(noise_image, sigma=2, order=0, output=None, mode='reflect', cval=0.0)
+cv2.imwrite('gaussimg.png',gauss_image)
